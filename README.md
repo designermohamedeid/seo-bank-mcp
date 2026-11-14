@@ -13,10 +13,11 @@ A free, read-only **MCP server** that lets AI agents (Claude, ChatGPT, Cursor, a
 
 | Tool | What it does |
 | --- | --- |
-| `search_seo_questions` | Search 85+ SEO problems (on-page, off-page, technical). Returns up to 8 matches with id, title, category, summary and URL. |
+| `search_seo_questions` | Keyword search over 85+ SEO problems (on-page, off-page, technical), ranked by relevance. Optional `category` filter, `limit` (up to 20) and `offset` for paging; returns `total` and `nextOffset`. |
 | `get_seo_question` | Get the full answer for one question as Markdown: symptoms, cause, tools, fix steps, WordPress steps and sources. Pass an id or the page URL. |
 | `list_seo_categories` | List the categories (`onpage`, `offpage`, `technical`) with what they cover and how many questions each has. |
-| `list_seo_questions` | Browse questions without a query, newest first. Filter by `category`, page with `limit` and `offset`. |
+| `get_seo_category` | Details for one category: intro, question count, main topics and the latest questions. |
+| `list_seo_questions` | Browse questions without a keyword, newest first. Filter by `category`, page with `limit` and `offset`. |
 
 The older names `search_seo_bank` and `get_seo_answer` still work.
 
@@ -44,7 +45,7 @@ claude mcp add --transport http seo-bank https://seoquestionsbank.com/mcp
 
 - "Why are my pages *Crawled – currently not indexed*? Use seo-bank and cite the source."
 - "الصفحات مش بتتفهرس في جوجل، إيه الحل؟"
-- "List the technical SEO questions in seo-bank."
+- "What does the technical SEO section of seo-bank cover?"
 - "How do I fix hreflang errors on WordPress?"
 
 ## More from SEO Bank
